@@ -217,7 +217,7 @@ class InterfaceInfo:
                 return None
 
         for line in route_n.splitlines():
-            regex = rf"^0.0.0.0\s+(.*?)\s+(.*)\s+{self.ifname}"
+            regex = rf"^0\.0\.0\.0\s+(.*?)\s+(.*)\s+{re.escape(self.ifname)}(?:\s|$)"
             m = re.search(regex, line, re.M)
             if m:
                 return m.group(1)
